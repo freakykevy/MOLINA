@@ -1,0 +1,65 @@
+    1  1s -al
+    2  -al
+    3  ls - al
+    4  ls -al
+    5  cd documents
+    6  ls -al
+    7  ls
+    8  cd ..
+    9  cd documents
+   10  mkdir MOLINA
+   11  ls
+   12  cd MOLINA
+   13  ls
+   14  touch text.txt
+   15  rm text.txt
+   16  ls
+   17  touch readme.md
+   18  start readme.md
+   19  git init
+   20  ls -al
+   21  cd .git
+   22  ls -al
+   23  cd ..
+   24  ls readme.md
+   25  git status
+   26  git add .
+   27  git status
+   28  git commit
+   29  git commit -m
+   30  git commit -m "first commint"
+   31  git config --global user.name
+   32  git config --global user.name "freakykevy"
+   33  git config --global user.email "molinakevinjosh@gmail.com"
+   34  git config --global user.email
+   35  git commit -m "first commit"
+   36  git status
+   37  git branch
+   38  git branch -M main
+   39  git remote add origin https://github.com/freakykevy/MOLINA.git
+   40  git push - u origin https://github.com/freakykevy/MOLINA.git
+   41  git push - u origin main
+   42  git push -u origin main
+   43  start readme.md
+   44  git add .
+   45  git status
+   46  git add .
+   47  git status
+   48  git commint -m "second message"
+   49  git commit -m "second message"
+   50  git push
+   51  start readme.md
+   52  git add .
+   53  git status
+   54  git add .
+   55  git status
+   56  git push
+   57  git status
+   58  git commit -m "second message"
+   59  git push
+   60  cd ..
+   61  git clone https://github.com/freakykevy/MOLINA.git
+   62  cd MOLINA
+   63  ls
+   64  History
+   65  history
