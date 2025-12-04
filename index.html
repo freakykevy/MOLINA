@@ -1,58 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Website</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="java.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Molina | Cyberpunk Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- bar -->
-<header>
-    <nav class="bar">
-    <div class="logo">💻 MY WEBSITE&nbsp;</div>
-    <ul class="barlinks">
-        <li ><a href="#home" class="homes">[🏡] HOME</a></li>
-        <li><a href="resume.html">[📄] RESUME</a></li>
-        <li><a href="schedule.html">[🕘] SCHEDULE</a></li>
-        <li><a href="gallery.html">[📷] GALLERY</a></li>
-        <li> <a href="contact.html">[📩]CONTACT ME </a></li>
-        <li><a href="multimedia.html" >[🎥]MULTIMEDIA</a></li>
+    <!-- Grid Background -->
+    <div class="grid-bg"></div>
 
-    </nav>
-</header>
+    <!-- Header -->
+    <header>
+        <div class="logo"><span>KEVIN</span> MOLINA</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- info Section -->
-<section id="home" class="info">
-    <div class="infotext">
-    <h1>Hi, I’m <span class="highlight">Kevy </span> :o </h1>
-    <h2>2nd Year BSIT In Olivarez College</h2>
-    <p>
-        Hello, my name is<spam class="high2"> Kevin Josh A. Molina.</spam> I am currently living in<spam class="high2"> Brgy. Don Bosco, Parañaque City,</spam>
-        and I am a <spam class="high2">second-year college student</spam> pursuing a <spam class="high2">Bachelor of Science in Information Technology.</spam>
-        Im a sporty man with a gamer lifestyle
-    </p><br>
-    <div class="social-icons">
-        <a href="https://www.facebook.com/sweetkevy" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="#" ><i class="fab fa-github"></i></a>
-        <a href="https://www.instagram.com/sweetkevy/" target="_blank"><i class="fab fa-instagram" target="_blank"></i></a>
-        <a href="#" ><i class="fab fa-twitter"></i></a><br><br>
-        </div>
-</div>
-<div class="infoimage">
-<div class="flip-card">
-    <div class="flip-card-inner">
-    <div class="flip-card-front">
-        <img src="img/yes.jpg" alt="Front Photo">
+    <!-- Introduction Section -->
+    <section class="hero" id="home">
+        <h1>Hi! I'm Kevy :o</h1>
+        <p>Welcome to my digital realm where code meets creativity in a neon-drenched cyberpunk universe.</p>
+        <a href="#projects" class="cta-button">Explore My Work</a>
+    </section>
+
+    <!-- About Section -->
+<section class="about" id="about">
+    <div class="about-content">
+        <h2>About Me</h2>
+        <p>I'm Kevin Josh A. Molina, Student</p>
+        <p>from Bachelor of Science in Information Technology in Olivarez College, currently living in Brgy. Don Bosco Parañaque City</p>
+        <p>My Hobbies are playing basketball, listening to music, playing instruments, also play online/offline games.</p>
     </div>
-    <div class="flip-card-back">
-        <img src="img/yes.jpg" alt="Back Photo">
+    <div class="about-image">
+        <img src="img/yes.jpg" alt="Kevin Molina - Cyberpunk Developer" width="400" height="500">
     </div>
-    </div>
-</div>
-</div>
 </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <h2>Technical Arsenal</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>Programmer</h3>
+                <p>A problem-solver who writes clean, efficient code to build reliable software and automate complex tasks.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-palette"></i>
+                <h3>Designer</h3>
+                <p>A creative thinker who transforms ideas into visually compelling and user-friendly digital experiences.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-server"></i>
+                <h3>Web Builder</h3>
+                <p>A hands-on creator who develops and maintains functional, responsive, and engaging websites from concept to launch.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Innovator</h3>
+                <p>A forward-thinker who combines creativity and technology to design groundbreaking solutions that shape the future.</p>
+            </div>
+        </div>
+    </section>
+
+<!-- Projects Section -->
+<section class="projects" id="projects">
+    <h2>My <span>Projects</span></h2>
+    <p class="projects-subtitle"></p>
+    
+    <div class="projects-links-grid">
+        <!-- Link 1 -->
+        <a href="projects.html" class="project-link-card">
+            <div class="project-link-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <h3>Web Development</h3>
+            <p>Interactive websites and applications built with modern technologies</p>
+            <div class="project-link-arrow">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </a>
+
+        <!-- Link 2 -->
+        <a href="projects.html" class="project-link-card">
+            <div class="project-link-icon">
+                <i class="fas fa-palette"></i>
+            </div>
+            <h3>UI/UX Design</h3>
+            <p>Beautiful interfaces and user experiences with responsive design</p>
+            <div class="project-link-arrow">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </a>
+
+        <!-- Link 3 -->
+        <a href="projects.html" class="project-link-card">
+            <div class="project-link-icon">
+                <i class="fas fa-tools"></i>
+            </div>
+            <h3>All Projects</h3>
+            <p>Complete portfolio including multimedia and interactive forms</p>
+            <div class="project-link-arrow">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </a>
+    </div>
+
+    <div class="projects-cta-main">
+        <h3>Ready to Explore My Work?</h3>
+        <p>Dive into my complete project portfolio with detailed case studies and live demonstrations</p>
+        <a href="projects.html" class="cta-button">View Complete Portfolio</a>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Initiate Connection</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Don Bosco, Parañaque City, Philippines</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Communication Channel</h4>
+                            <p>09155938452</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Transmission Address</h4>
+                            <p>molinakevinjosh@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Operational Hours</h4>
+                            <p>Always awake just call.</p>
+                        </div>
+                    </div>
+                </div>
+                <h3>Network Links</h3>
+                <div class="social-links-contact">
+                    <a href="https://www.facebook.com/share/1BRXJz2pH2/"><i class="fab fa-facebook"></i></a>
+            <a href="https://github.com/freakykevy"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/kev_abisaya?t=AidOkkMi8pACaCAJ7Ej62g&s=09"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/sweetkevy?igsh=Z2xqOWl1c2l3OHc1"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Designation</label>
+                    <input type="text" id="name" placeholder="Enter your designation">
+                </div>
+                <div class="form-group">
+                    <label for="email">Transmission Frequency</label>
+                    <input type="email" id="email" placeholder="Enter your transmission frequency">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Communication Protocol</label>
+                    <input type="text" id="subject" placeholder="Specify communication protocol">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message Data Packet</label>
+                    <textarea id="message" rows="5" placeholder="Encode your message data packet"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Initiate Transmission</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com/share/1BRXJz2pH2/"><i class="fab fa-facebook"></i></a>
+            <a href="https://github.com/freakykevy"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/kev_abisaya?t=AidOkkMi8pACaCAJ7Ej62g&s=09"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/sweetkevy?igsh=Z2xqOWl1c2l3OHc1"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="copyright">© 2025 Kevin Molina. All systems operational.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>

@@ -3,84 +3,836 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
-    <link rel="stylesheet" href="style1.css">
+    <title>Kevin Josh A. Molina - Cyberpunk Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+        
+        body {
+            background: #0a0a16;
+            color: #e0e0ff;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Cyberpunk Background Elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(58, 12, 163, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 0, 128, 0.1) 0%, transparent 50%);
+            z-index: -2;
+        }
+        
+        .grid-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 255, 255, 0.8), transparent);
+            animation: scan 3s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+        
+        .floating-elements {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        
+        .resume-container {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(10, 10, 30, 0.85);
+            box-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.5),
+                0 0 40px rgba(255, 0, 128, 0.3),
+                inset 0 0 20px rgba(0, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+        
+        .resume-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff00cc, #00ffff, #ff00cc);
+            animation: border-glow 3s linear infinite;
+        }
+        
+        @keyframes border-glow {
+            0% { background-position: -100% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        /* Left Panel Styles */
+        .left-panel {
+            background: linear-gradient(to bottom, rgba(20, 20, 50, 0.9), rgba(10, 10, 30, 0.9));
+            color: #e0e0ff;
+            padding: 40px 30px;
+            position: relative;
+            border-right: 1px solid rgba(0, 255, 255, 0.2);
+        }
+        
+        .photo-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #00ffff;
+            box-shadow: 
+                0 0 15px rgba(0, 255, 255, 0.7),
+                inset 0 0 15px rgba(0, 255, 255, 0.3);
+            position: relative;
+        }
+        
+        .photo-container::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff00cc, #00ffff, #ff00cc, #00ffff);
+            z-index: -1;
+            animation: rotate 5s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a3a, #0a0a1a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00ffff;
+            font-size: 4rem;
+            border-radius: 50%;
+        }
+        
+        .name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+        
+        .title {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 300;
+            color: #ff00cc;
+            text-shadow: 0 0 5px rgba(255, 0, 128, 0.7);
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ffff, #ff00cc, transparent);
+            margin: 25px 0;
+            border: none;
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(5px);
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+        }
+        
+        .contact-icon {
+            width: 35px;
+            height: 35px;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 0.9rem;
+            color: #00ffff;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+        }
+        
+        .contact-text {
+            font-size: 0.95rem;
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 8px;
+            color: #ff00cc;
+            text-shadow: 0 0 5px rgba(255, 0, 128, 0.7);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #ff00cc, #00ffff);
+        }
+        
+        .personal-data-item {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+        
+        .data-label {
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #00ffff;
+        }
+        
+        .language-item {
+            margin-bottom: 12px;
+        }
+        
+        .language-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+        
+        .skill-bar {
+            height: 6px;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+        
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, #ff00cc, #00ffff);
+            border-radius: 3px;
+            box-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+        }
+        
+        /* Right Panel Styles */
+        .right-panel {
+            padding: 40px;
+            background: rgba(15, 15, 35, 0.8);
+        }
+        
+        .right-section {
+            margin-bottom: 35px;
+        }
+        
+        .right-section-title {
+            font-size: 1.3rem;
+            color: #00ffff;
+            border-bottom: 2px solid #ff00cc;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.7);
+        }
+        
+        .right-section-title i {
+            margin-right: 10px;
+            color: #ff00cc;
+            text-shadow: 0 0 5px rgba(255, 0, 128, 0.7);
+        }
+        
+        .about-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #c0c0ff;
+        }
+        
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+        
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 17px;
+            width: 2px;
+            height: calc(100% + 8px);
+            background: linear-gradient(to bottom, #00ffff, #ff00cc);
+        }
+        
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #00ffff;
+        }
+        
+        .item-subtitle {
+            color: #ff00cc;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .item-date {
+            color: #a0a0ff;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: inline-block;
+            background: rgba(0, 255, 255, 0.1);
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+        
+        .item-description {
+            font-size: 0.95rem;
+            color: #c0c0ff;
+        }
+        
+        .education-item {
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .education-degree {
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+            color: #00ffff;
+        }
+        
+        .education-school {
+            color: #ff00cc;
+            margin-bottom: 5px;
+        }
+        
+        .education-date {
+            color: #a0a0ff;
+            font-size: 0.9rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #e0e0ff;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-left: 3px solid #ff00cc;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background: rgba(255, 0, 128, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(255, 0, 128, 0.3);
+        }
+        
+        .achievement-item {
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .achievement-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .achievement-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #00ffff;
+        }
+        
+        .achievement-desc {
+            color: #c0c0ff;
+            font-size: 0.95rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .left-panel {
+                text-align: center;
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+            }
+            
+            .contact-item {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            
+            .left-panel, .right-panel {
+                padding: 25px 20px;
+            }
+            
+            .photo-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .name {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Home Button Styles */
+        .home-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(20, 20, 50, 0.8);
+            color: #00ffff;
+            border: 1px solid rgba(0, 255, 255, 0.5);
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 100;
+            text-decoration: none;
+            backdrop-filter: blur(5px);
+        }
+        
+        .home-btn:hover {
+            background: rgba(255, 0, 128, 0.2);
+            color: #ff00cc;
+            border-color: #ff00cc;
+            box-shadow: 0 0 15px rgba(255, 0, 128, 0.7);
+            transform: translateY(-3px);
+        }
+        
+        /* Glitch effect for name */
+        .name-glitch {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .name-glitch::before,
+        .name-glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .name-glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00cc;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        
+        .name-glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #00ffff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim {
+            0% { clip: rect(42px, 9999px, 44px, 0); }
+            5% { clip: rect(12px, 9999px, 59px, 0); }
+            10% { clip: rect(48px, 9999px, 29px, 0); }
+            15% { clip: rect(42px, 9999px, 73px, 0); }
+            20% { clip: rect(63px, 9999px, 27px, 0); }
+            25% { clip: rect(34px, 9999px, 55px, 0); }
+            30% { clip: rect(86px, 9999px, 73px, 0); }
+            35% { clip: rect(20px, 9999px, 20px, 0); }
+            40% { clip: rect(26px, 9999px, 60px, 0); }
+            45% { clip: rect(25px, 9999px, 66px, 0); }
+            50% { clip: rect(57px, 9999px, 98px, 0); }
+            55% { clip: rect(5px, 9999px, 46px, 0); }
+            60% { clip: rect(82px, 9999px, 31px, 0); }
+            65% { clip: rect(54px, 9999px, 27px, 0); }
+            70% { clip: rect(28px, 9999px, 99px, 0); }
+            75% { clip: rect(45px, 9999px, 69px, 0); }
+            80% { clip: rect(23px, 9999px, 85px, 0); }
+            85% { clip: rect(54px, 9999px, 84px, 0); }
+            90% { clip: rect(45px, 9999px, 47px, 0); }
+            95% { clip: rect(37px, 9999px, 20px, 0); }
+            100% { clip: rect(4px, 9999px, 91px, 0); }
+        }
+        
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            5% { clip: rect(52px, 9999px, 74px, 0); }
+            10% { clip: rect(79px, 9999px, 85px, 0); }
+            15% { clip: rect(75px, 9999px, 5px, 0); }
+            20% { clip: rect(67px, 9999px, 61px, 0); }
+            25% { clip: rect(14px, 9999px, 79px, 0); }
+            30% { clip: rect(1px, 9999px, 66px, 0); }
+            35% { clip: rect(86px, 9999px, 30px, 0); }
+            40% { clip: rect(23px, 9999px, 98px, 0); }
+            45% { clip: rect(85px, 9999px, 72px, 0); }
+            50% { clip: rect(71px, 9999px, 75px, 0); }
+            55% { clip: rect(2px, 9999px, 48px, 0); }
+            60% { clip: rect(30px, 9999px, 16px, 0); }
+            65% { clip: rect(59px, 9999px, 50px, 0); }
+            70% { clip: rect(41px, 9999px, 62px, 0); }
+            75% { clip: rect(2px, 9999px, 82px, 0); }
+            80% { clip: rect(47px, 9999px, 73px, 0); }
+            85% { clip: rect(3px, 9999px, 27px, 0); }
+            90% { clip: rect(26px, 9999px, 55px, 0); }
+            95% { clip: rect(42px, 9999px, 97px, 0); }
+            100% { clip: rect(38px, 9999px, 49px, 0); }
+        }
+    </style>
 </head>
 <body>
+    <!-- Cyberpunk Background Elements -->
+    <div class="grid-lines"></div>
+    <div class="scanline"></div>
+    <div class="floating-elements" id="floatingElements"></div>
 
-    <header>
-        <nav class="bar">
-        <div class="logo">💻 MY WEBSITE&nbsp;</div>
-        <ul class="barlinks">
-            <li ><a href="index.html" class="homes">[🏡] HOME</a></li>
-            <li><a href="#home">[📄] RESUME</a></li>
-            <li><a href="schedule.html">[🕘] SCHEDULE</a></li>
-            <li><a href="gallery.html">[📷] GALLERY</a></li>
-            <li> <a href="contact.html">[📩]CONTACT ME </a></li>
-            <li><a href="multimedia.html" >[🎥]MULTIMEDIA</a></li>
-    
-        </nav>
-    </header>
+    <!-- Home Button -->
+    <a href="projects.html" class="home-btn">
+        <i class="fas fa-home"></i> Home
+    </a>
 
-    <div>
-        <figure>
-            <img src="img/id.jpg" alt="" width="10%" align="right">
-        </figure>
+    <!-- Resume Container -->
+    <div class="resume-container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <div class="photo-container">
+                <img src="img/id.jpg" alt="Kevin Josh A. Molina" class="photo-placeholder">
+            </div>
+            
+            <h1 class="name name-glitch" data-text="KEVIN JOSH A. MOLINA">KEVIN JOSH A. MOLINA</h1>
+            <p class="title">BSIT STUDENT</p>
+            
+            <div class="divider"></div>
+            
+            <div class="contact-info">
+                <h2 class="section-title">Contact</h2>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">molinakevinjosh@gmail.com</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">+63 9155938452</div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">Don Bosco, Parañaque City, Philippines</div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="personal-data">
+                <h2 class="section-title">Personal Data</h2>
+                
+                <div class="personal-data-item">
+                    <div class="data-label">Date of Birth</div>
+                    <div>October 14, 2006</div>
+                </div>
+                
+                <div class="personal-data-item">
+                    <div class="data-label">Place of Birth</div>
+                    <div>Parañaque City</div>
+                </div>
+                
+                <div class="personal-data-item">
+                    <div class="data-label">Nationality</div>
+                    <div>Filipino</div>
+                </div>
+                
+                <div class="personal-data-item">
+                    <div class="data-label">Religion</div>
+                    <div>Catholic</div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="languages">
+                <h2 class="section-title">Languages</h2>
+                
+                <div class="language-item">
+                    <div class="language-name">
+                        <span>Filipino</span>
+                        <span>Native</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 100%"></div>
+                    </div>
+                </div>
+                
+                <div class="language-item">
+                    <div class="language-name">
+                        <span>English</span>
+                        <span>Intermediate</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <section class="right-section">
+                <h2 class="right-section-title">
+                    <i class="fas fa-user"></i> Introduction
+                </h2>
+                <p class="about-text">
+                    I am Molina, Kevin Josh A., 18 years old, a BSIT Student from Olivarez College, who is currently in the Sophomore year, born on October 14, 2006. My favorite hobbies are playing Basketball, Mobile Legends, and Watching Movies.
+                </p>
+            </section>
+            
+            <section class="right-section">
+                <h2 class="right-section-title">
+                    <i class="fas fa-bullseye"></i> Objective
+                </h2>
+                <p class="about-text">
+                    Aspiring IT professional seeking opportunities in application development and emerging technologies, aiming to apply technical knowledge and problem-solving skills to contribute to organizational success.
+                </p>
+            </section>
+            
+            <section class="right-section">
+                <h2 class="right-section-title">
+                    <i class="fas fa-graduation-cap"></i> Education
+                </h2>
+                
+                <div class="education-item">
+                    <div class="education-degree">Bachelor of Science in Information Technology</div>
+                    <div class="education-school">Olivarez College</div>
+                    <div class="education-date">2024 – Present</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-degree">ICT Strand</div>
+                    <div class="education-school">K.C.M Academy Inc.</div>
+                    <div class="education-date">2022 - 2024</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-degree">High School</div>
+                    <div class="education-school">Don Bosco High School Paranaque</div>
+                    <div class="education-date">2018 - 2022</div>
+                </div>
+            </section>
+            
+            <section class="right-section">
+                <h2 class="right-section-title">
+                    <i class="fas fa-tools"></i> Skills
+                </h2>
+                
+                <div class="skills-container">
+                    <div class="skill-tag">Hardworking</div>
+                    <div class="skill-tag">Problem-Solving</div>
+                    <div class="skill-tag">Critical Thinking</div>
+                    <div class="skill-tag">Team Collaboration</div>
+                    <div class="skill-tag">Computer Skills</div>
+                    <div class="skill-tag">Mobile Legends</div>
+                    <div class="skill-tag">Basketball</div>
+                </div>
+            </section>
+            
+            <section class="right-section">
+                <h2 class="right-section-title">
+                    <i class="fas fa-trophy"></i> Achievements
+                </h2>
+                
+                <div class="achievement-item">
+                    <div class="achievement-title">Math Quiz Bee Champion (Back-to-Back)</div>
+                    <div class="achievement-desc">Grade 7 to Grade 8</div>
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-title">Top 2 in Mathematics</div>
+                    <div class="achievement-desc">Grade 7 to Grade 8</div>
+                </div>
+            </section>
+        </div>
     </div>
 
-    <h1>Kevin Josh A. Molina</h1>
-    <p>
-        <b>Email:</b> molinakevinjosh@gmail.com <br>
-        <b>Phone:</b> +63 9155938452 <br>
-        <b>Address:</b> Don Bosco, Parañaque City, Philippines
-    </p>
-
-    <h2>Introduction</h2>
-        <p>
-        I am <b>Molina, Kevin Josh A.</b>, 18 yrs old, an BSIT Student from Olivarez College, who is currently in the 
-        Sophomore year, born on October 14, 2006. My favorite hobbies are playing Basketball, Mobile Legends, Watching Movies.
-        </p>
-
-    <hr />
-
-    <h2>Objective</h2>
-    <p>
-        Aspiring IT professional seeking opportunities in application development and emerging technologies, 
-        aiming to apply technical knowledge and problem-solving skills to contribute to organizational success.
-    </p>
-
-    <h2>Personal Data</h2>
-    <p>
-        <b>Date of Birth:</b> October 14, 2006 <br>
-        <b>Place of Birth:</b> Parañaque City <br>
-        <b>Nationality:</b> Filipino <br>
-        <b>Religion:</b> Catholic <br>
-        <b>Language's Spoken:</b> Filipino
-    </p>
-
-    <h2>Education</h2>
-    <ol>
-        <li><b>Bachelor of Science in Information Technology</b> – Olivarez College (2024 – Present)</li>
-        <li><b>ICT Strand</b> - K.C.M Academy Inc. (2022 - 2024)</li>
-        <li>Don Bosco High School Paranaque (2018 - 2022)</li>
-    </ol>
-
-    <h2>Skills</h2>
-    <ul>
-        <li>Hardworking</li>
-        <li>Problem-Solving & Critical Thinking</li>
-        <li>Team Collaboration</li>
-        <li>Computer Skills</li>
-    </ul>
-
-    <h2>Achievements</h2>
-    <ul>
-        <li>Math Quiz Bee B2B Grade 7 to 8</li>
-        <li>Top 2 in Mathematics Grade 7 to 8</li>
-    </ul>
-
+    <script>
+        // Simple animation for skill bars on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-level');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.transition = 'width 1.5s ease-in-out';
+                    bar.style.width = width;
+                }, 300);
+            });
+            
+            // Create floating elements
+            const floatingContainer = document.getElementById('floatingElements');
+            for (let i = 0; i < 15; i++) {
+                const element = document.createElement('div');
+                element.classList.add('floating-element');
+                
+                // Random size and position
+                const size = Math.random() * 30 + 10;
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                element.style.left = `${Math.random() * 100}%`;
+                element.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation
+                const duration = Math.random() * 20 + 10;
+                element.style.animation = `float ${duration}s infinite linear`;
+                
+                floatingContainer.appendChild(element);
+            }
+            
+            // Add floating animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float {
+                    0% { transform: translate(0, 0) rotate(0deg); }
+                    25% { transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(90deg); }
+                    50% { transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(180deg); }
+                    75% { transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(270deg); }
+                    100% { transform: translate(0, 0) rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
-<footer>
-    <a href="#top">Go to top</a>
-</footer>
 </html>
