@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avengers Wall Clock</title>
+    <link rel="stylesheet" href="clock.css">
+    <link href="https://fonts.googleapis.com/css2?family=Marvel:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">AVENGERS ASSEMBLE</h1>
+        <div class="clock-container">
+            <div class="clock">
+                <div class="clock-face">
+                    <!-- Hour numbers -->
+                    <div class="number number-1">1</div>
+                    <div class="number number-2">2</div>
+                    <div class="number number-3">3</div>
+                    <div class="number number-4">4</div>
+                    <div class="number number-5">5</div>
+                    <div class="number number-6">6</div>
+                    <div class="number number-7">7</div>
+                    <div class="number number-8">8</div>
+                    <div class="number number-9">9</div>
+                    <div class="number number-10">10</div>
+                    <div class="number number-11">11</div>
+                    <div class="number number-12">12</div>
+                    
+                    <!-- Avengers characters -->
+                    <div class="character iron-man" data-character="Iron Man">💥</div>
+                    <div class="character captain-america" data-character="Captain America">🛡️</div>
+                    <div class="character thor" data-character="Thor">⚡</div>
+                    <div class="character hulk" data-character="Hulk">💪</div>
+                    <div class="character black-widow" data-character="Black Widow">�️</div>
+                    <div class="character hawkeye" data-character="Hawkeye">🏹</div>
+                    
+                    <!-- Clock hands -->
+                    <div class="hand hour-hand"></div>
+                    <div class="hand minute-hand"></div>
+                    <div class="hand second-hand"></div>
+                    
+                    <!-- Center dot -->
+                    <div class="center-dot"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <div class="digital-time">00:00:00</div>
+            <div class="date-display">Monday, January 1, 2023</div>
+            <div class="character-info">Hover over an Avenger to see details</div>
+        </div>
+        
+        <div class="controls">
+            <button id="theme-toggle">Toggle Theme</button>
+            <button id="sound-toggle">Sound: ON</button>
+            <button id="avengers-mode">Avengers Mode</button>
+        </div>
+    </div>
+    
+    <script src="clock.js"></script>
+</body>
+</html>
