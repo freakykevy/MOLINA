@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+</head>
+
+<body style="background-color: crimson;">
+    
+<div style="display: flex; justify-content: center; background-color: black; color: pink; text-align: center; font-size: 50px;">
+    <figure>
+        <img src="img/giphy.webp" alt="" width="100%" align="">
+        <figcaption>WOW</figcaption>
+    </figure>
+    <figure>
+        <img src="img/giphy.webp" alt="" width="100%" align="">
+        <figcaption>SARAP</figcaption>
+    </figure>
+    <figure>
+        <img src="img/giphy.webp" alt="" width="100%" align="">
+        <figcaption>AMAZING</figcaption>
+    </figure>
+</div>
+
+</body>
+<body>
+    <hr>
+    <h1 align="center">Tables</h1>
+
+    <table width="50%" cellpadding="12" cellspacing="5" border="5" align="center">
+        <thead style="background-color: aqua;">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+<tbody style="background-color: blueviolet;">
+    <tr>
+        <td>Kevin</td>
+        <td>18</td>
+        <td bgcolor="#23567">Olivarez</td>
+    </tr>
+    <tr>
+        <td>Jamir</td>
+        <td>19</td>
+        <td rowspan="2">Olivarez</td>
+    </tr>
+    <tr>
+        <td>Emman</td>
+        <td>21</td>
+    </tr>
+    </tbody>
+    <tfoot style="background-color: coral; color: darkred;">
+        <tr>
+            <td colspan="3" align="center">MY TABLES</td>
+        </tr>
+    </tfoot>
+    </table>
+
+    <hr>
+
+    <form id="" action="" style="background-color: aqua;">
+        <h1> THIS IS MY FORM </h1>
+
+        <label for="username"> Username: </label>
+        <input type="text" name="username" id="username" maxlength="10">
+        
+        <br><br>
+
+        <label for="password"> Password: </label>
+        <input type="password" name="password" id="password" maxlength="10">
+
+        <br><br>
+
+        <button type="submit" name="submit" id="submit" onclick="validate()">Submit</button>
+
+    </form>
+
+    <form id="registration" style="background-color: blue;">
+        <h1> REGISTRATION FORM </h1>
+        
+        <div>
+            <label for="gender">Gender</label>
+
+            <input type="radio" name="gender" id="gender" value="male" checked>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="gender" value="female">
+            <label for="female">Female</label>
+        </div>
+
+        <div>
+            <label>Genre</label>
+
+            <select name="genre" id="genre">
+                <option value="" selected>--Selected Genre--</option>
+                <option value="Rock">Rock</option>
+                <option value="Kpop">Kpop</option>
+                <option value="Country">Country</option>
+            </select>
+        </div>
+
+        <input type="button" name="submit" id="submit" onclick="registration()" value="submit">
+
+    </form>
+</body>
+</html>
+
+<script>
+    
+    function validate(){
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if(username === 'pogi' && password === 'ako'){
+            alert("Successfully login : your username: "+ username +" and password " + password);
+            window.location.href = "";
+        } else {
+                alert("Invalid username and password");
+            }
+        }
+
+    function registration(){
+        var gender = document.querySelector('input[name="gender"];checked').value;
+        var genre = document.querySelector('select[name="gender"];').value;
+
+        alert(" Your Gender is " + gender + " Your Genre is " + genre);
+    }
+</script>
